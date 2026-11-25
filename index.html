@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="noindex" />
+    <title>CAPITAL PULSE</title>
+    <link rel="icon" href="/capital-pulse-site/favicon.svg" type="image/svg+xml" />
+    <style>body{color:#eaf0fa;background:#050810;margin:0;padding:32px;font:16px/1.6 system-ui,sans-serif}a{color:#e8c766}</style>
+    <script>
+      // 言語の振り分け（保存された言語 → ブラウザの言語 → en）
+      (function () {
+        var langs = ['ja', 'en', 'zh', 'es'];
+        var pick = 'en';
+        try {
+          var saved = localStorage.getItem('capital-pulse:lang');
+          if (saved && langs.indexOf(saved) >= 0) pick = saved;
+          else {
+            var nav = (navigator.language || 'en').slice(0, 2);
+            if (langs.indexOf(nav) >= 0) pick = nav;
+          }
+        } catch (e) {}
+        location.replace(pick + '/' + location.search);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>CAPITAL PULSE</p>
+    <ul>
+      <li><a href="ja/">日本語</a></li>
+      <li><a href="en/">English</a></li>
+      <li><a href="zh/">简体中文</a></li>
+      <li><a href="es/">Español</a></li>
+    </ul>
+  </body>
+</html>
